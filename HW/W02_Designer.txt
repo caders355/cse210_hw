@@ -4,13 +4,13 @@ Journal Program:
     3. The program should save user input, a program-generated prompt, and the date to a file.
     4. The program should only end when a user is done, as they should be able to view all journal entries.
 
-Classes:
+Classes (besides core Program):
     1. Journal
         a. store entries
         b. save new entries to file
         c. load previous entries from file
         d. display all entries
-            => _entries [List<Entry>]
+            -> _entries [List<Entry>]
             ==> AddEntry(newEntry) [void]
             ==> DisplayAll() [void]
             ==> SaveToFile(file) [void]
@@ -18,13 +18,13 @@ Classes:
     2. PromptGenerator
         a. randomly choose a prompt
         b. return prompt to be displayed to user
-            => _prompts [List<string>]
+            -> _prompts [List<string>]
             ==> GetRandomPrompt() [string]
     3. Entry
         a. compiles date, prompt, and user input into an Entry
-            => _date [string]
-            => _promptText [string]
-            => _entryText [string]
+            -> _date [string]
+            -> _promptText [string]
+            -> _entryText [string]
             ==> Display() [void]
 
 Program Flow:

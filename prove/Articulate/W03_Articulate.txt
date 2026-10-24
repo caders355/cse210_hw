@@ -1,0 +1,5 @@
+Explain the meaning of Encapsulation
+Highlight a benefit of Encapsulation
+Provide an application of Encapsulation
+Use a code example of Encapsulation from the program you wrote
+Thoroughly explain these concepts (this likely cannot be done in less than 100 words)

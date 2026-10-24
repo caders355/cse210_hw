@@ -1,0 +1,56 @@
+Program
+    1. The program holds a scripture and its reference, then removes content of the scripture (words at a time), over the course of several user-prompted iterations, until the entire content of the scripture is hidden.
+    2. Decide which verse to memorize, enter to progress through memorization, type 'quit' to exit program.
+    3. It produces a text that consists of a scripture reference, the contents of the scripture, and a prompt to continue (press enter), or to quit (type 'quit').
+    4. The program ends when the entire scripture has been hidden, or when the user types 'quit'.
+
+Classes (besisdes core program)
+    1. Scripture
+        a. Tracks the status of the scripture
+        b. Keeps track of the scripture as a list of word objects
+        c. Hides words and displays what is left
+            -> _reference [Reference]
+            -> _words [List<Word>]
+            ==> Scripture(Reference reference, string text) {split text by spaces, construct Word object for each word, fill _words}
+            ==> HideRandomWords(int numberToHide) [void] {randomly select visible words and calls Hide()}
+            ==> GetDisplayText() [string] {combine _reference.GetDisplayText() and GetDisplayText() output of Word objects into 1 string}
+            ==> IsCompletelyHidden() [bool] {returns true if every Word object in _words is hidden}
+    2. Reference
+        a. Stores the scripture and reference and formats it to display
+            -> _book [string]
+            -> _chapter [int]
+            -> _startVerse [int]
+            -> _endVerse [int]
+            ==> GetDisplayText() [string] {format and return reference string}
+    3. Word
+        a. Represents a word in the scripture
+        b. Controls if the word is visible or replaced with underscores
+            -> _text [string]
+            -> _isHidden [bool]
+            ==> Word(string text) {initialize _text and set _isHidden to false}
+            ==> Hide() [void] {sets _isHidden to true}
+            ==> Show() [void] {sets _isHidden to false}
+            ==> IsHidden() [bool] {returns _isHidden}
+            ==> GetDisplayText [string] {returns _text if visible / if hidden, returns string of _'s corresponding to length of _text}
+    4. ScriptureLibrary
+        a. Picks a scripture from a selection upon startup
+            -> _scriptures [List<Scripture>]
+            ==> LoadFromFile(filepath) [void]
+            ==> GetRandomScripture() [Scripture]
+
+Prgram Flow
+    1. ScriptureLibrary loads options from file, randomly selects one
+    2. Clear console
+    3. Display Scripture.GetDisplayText()
+        |> Reference.GetDisplayText()
+        |> Word.GetDisplayText()
+    4. Check Scripture.IsCompletelyHidden()
+        |> If true -> end program
+    5. Prompt: "Press Enter to continue or 'quit' to exit"
+
+    If: User types 'quit'
+        |> End program
+    If: User presses enter
+        |> Scripture.HideRandomWords()
+            -> Filter visible words
+            -> Select and Hide()

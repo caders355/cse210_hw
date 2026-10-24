@@ -33,6 +33,16 @@ public class Fraction
         _top = top;
     }
 
+    public int GetBottom()
+    {
+        return _bottom;
+    }
+
+    public void SetBottom(int bottom)
+    {
+        _bottom = bottom;
+    }
+
     public string GetFractionString()
     {
         return $"{_top}/{_bottom}";
@@ -40,6 +50,6 @@ public class Fraction
 
     public double GetDecimalValue()
     {
-        return (double)_top/_bottom;
+        return Math.Round((double)_top/_bottom, 2);
     }
 }
