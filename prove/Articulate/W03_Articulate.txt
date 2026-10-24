@@ -1,5 +1,4 @@
-Explain the meaning of Encapsulation
-Highlight a benefit of Encapsulation
-Provide an application of Encapsulation
-Use a code example of Encapsulation from the program you wrote
-Thoroughly explain these concepts (this likely cannot be done in less than 100 words)
+Encapsulation is keep variables and methods that use the same data in as much of a closed-loop as possible, within a class. It means keeping things compartmentalized, so only code that needs to be shared, gets shared. Variables remain private, and can only be changed through specific, intentional ways.
+Encapsulation is beneficial in that it keeps you in control, and protects your code from being messed up by other parts of the code.
+Getters and Setters are great examples of Encapsulation at work. They leave variables private, and make it so that the only way they are accessed or changed is through methods (getters and setters) that are designed to do so.
+In my program, for example, I used private variables for the components of a scripture reference (book, chapter, verse(s), and the text), and they where accessed only through methods designed to read them, compile them, and display them, and in the way I wanted it to happen.
