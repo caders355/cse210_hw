@@ -1,0 +1,4 @@
+Inheritance is when we share attributes and behaviors of a [parent] class with another [child] class. 
+This is helpful when we don't want to write the same code to accomplish the same thing, multiple times. We simply take the attributes and behaviors that are shared, share them from a parent class.
+This is used when we have multiple classes that will be using some of the same attributes and behaviors, and we take those common among them, and put them in a parent class. Any that are specific to an individual class, remain in that specific class, but they can now inherit the common ones from the parent class.
+In my program, I had a parent class for the activities, and it handled things common to each activity, such as: activity name, activity instructions, duration, opening message, ending message, and the animations. Everything else was specific to the individual classes, so that's where they were handled.
