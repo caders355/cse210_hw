@@ -1,0 +1,58 @@
+Program
+    1. The program tracks user goals, then gamifies their completion of them by rewarding points (or something), and keeps data across sessions by saving to a text file.
+    2. The program takes in user input for selecting from a menu, goal descriptions, and points and milestones.
+    3. The program shows a menu, the user's current score, and goals with their completion status', and prompts to save or load.
+    4. The program ends when the user tells it to exit/quit.
+
+Classes, Attributes, and Behaviors (Besides Core Program)
+    1. Goal
+        -> _shortName [string]
+        -> _description [string]
+        -> _points (int)
+        ==> RecordEvent()
+        ==> IsComplete()
+        ==> GetDetailsString()
+        ==> GetStringRepresentation()
+    2. SimpleGoal
+        -> _isComplete (bool)
+        ==> override RecordEvent()
+        ==> override IsComplete()
+    3. EternalGoal
+        -> 
+        ==> override RecordEvent()
+        ==> override IsComplete()
+    4. ChecklistGoal
+        -> _amountCompleted (int)
+        -> _target (int)
+        -> _bonus (int)
+        ==> override RecordEvent()
+        ==> override IsComplete()
+        ==> override GetDetailsString()
+    5. GoalManager
+        -> _goals (List<Goal>)
+        -> _score (int)
+        ==> Start()
+        ==> DisplayPlayerInfo()
+        ==> ListGoalNames()
+        ==> ListGoalDetails()
+        ==> CreateGoal()
+        ==> RecordEvent()
+        ==> SaveGoals()
+        ==> LoadGoals()
+
+Program Flow
+    1. Program start, GoalManager initialized
+        -> _score = 0
+        -> create _goals list
+        -> menu while loop
+    2. User creates new goal, chooses type, EX: SimpleGoal
+        -> SimpleGoal simple = new SimpleGoal(name, description, points)
+        -> call base Goal constructor, set _shortName, _description, points
+        -> set _isComplete to false
+        -> add new SimpleGoal to _goals list
+    3. User loads goals
+        -> reads text file, parse type and attributes
+        -> call base Goal constructor, set _shortName, _description, _points
+        -> set _isComplete to saved boolean value
+        -> populate _goals with loaded objects, update _score
+    4. Return to main, restart while loop
