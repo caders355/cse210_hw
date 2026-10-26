@@ -1,0 +1,2 @@
+Polymorphism is when you take a method from a base class, and in a child class use its own implementation.
+A benefit is that it keeps your code super flexible. You can write in a method to a parent class, and have several child classes each use it, but utilize their own implementation of it to accomplish their specific version of the task.
