@@ -6,7 +6,8 @@ Date: [Oct 2026]
 Version: [1.0]
 */
 
-/* Exceeding Requirements:
+/* 
+Exceeding Requirements:
 1. Program loads a library of scriptures from an external file (Scriptures.txt)
 2. Program selects a random scripture from the library
 3. The algorithm for hiding words only selects from words that are not already hidden

@@ -1,0 +1,46 @@
+Program
+    1. The program will provide options for activities, and for each, will track the duration and guide the user through the activity. It should also offer a loading animated graphic while pausing.
+    2. The program requires the user to decide an activity, as well as a duration.
+    3. The program will output a menu, and then direction through an activity, as well as a loading animated graphic throughout, and a confirmation/congratulations message at the end. 
+    4. The program ends when an activity has been completed.
+
+Classes, Attributes, and Methods (Besides Core Program)
+    1. Activity
+        -> _activity [string]
+        -> _instructionText [string]
+        -> _duration [int]
+        ==> DisplayStartMessage()
+        ==> DisplayEndMessage()
+        ==> LoadingSpinner(int duration)
+        ==> LoadingAnimation(int duration)
+    2. BreathingActivity
+        -> 
+        ==> Run()
+    3. ReflectingActivity
+        -> _prompts [List<string>]
+        -> _questions [List<string>]
+        ==> Run()
+        ==> GetRandomPrompt()
+        ==> GetRandomQuestion()
+        ==> Display Prompt()
+        ==> Display Question()
+    4. ListingActivity
+        -> _count [int]
+        -> _prompts [List<string>]
+        ==> Run()
+        ==> GetRandomPrompt()
+        ==> GetListFromUser()
+
+Program Flow
+    1. Counter for activitiesCompleted initialized, display menu in while loop
+    2. User selects activity, EX: ReflectingActivity reflection = new ReflectingActivity();
+        -> sets _name to Reflecting Activity, sets _instructionText inherited from Activity Classes
+        -> creates _prompts and _questions lists, loads them with the strings
+    3. runs activity, EX: reflection.Run();
+        -> DisplayStartMessage()
+        -> DisplayPrompt()
+        -> time loop, spinner shown
+        -> DisplayEndMessage()
+    4. Returns to Main
+        -> activitiesCompleted ++
+        -> while loop restarts, clears console
