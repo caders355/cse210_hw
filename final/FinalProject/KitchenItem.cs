@@ -15,24 +15,29 @@ public class KitchenItem : Item
     private string _itemMaterial;
     private bool _isDishwasherSafe;
 
-    // 
-    public KitchenItem(string itemId, string itemName, double itemValue, int itemQuantity, string itemDescription, string itemMaterial, bool isDiswasherSafe)
+    // Use base to pass shared attributes to parent constructor 
+    public KitchenItem(string itemId, string itemName, double itemValue, int itemQuantity, string itemDescription, string itemSubcategory, string itemMaterial, bool isDiswasherSafe)
         : base(itemId, itemName, itemValue, itemQuantity, itemDescription)
     {
+        _itemSubcategory = itemSubcategory;
         _itemMaterial = itemMaterial;
         _isDishwasherSafe = isDiswasherSafe;
     }
 
+    // Changes the way the parent method functions
     public override void DisplayItemInfo()
     {
-        Console.WriteLine("");
-
-        // 
-
+        Console.WriteLine($"[Kitchen] {_itemName} ({_itemSubcategory}) - ${_itemValue}");
+        Console.WriteLine($"    {_itemMaterial}");
+        Console.WriteLine($"    Qty: {_itemQuantity}");
+        Console.WriteLine($"    Dishwasher Safe: {_isDishwasherSafe}");
+        Console.WriteLine($"    Item Description: {_itemDescription}");
     }
 
+    // Format the data for saving to text file
     public override string GetStringRepresentation()
     {
-        throw new NotImplementedException();
+        // Use '|' as delimiter
+        return $"KitchenItem|{_itemId}|{_itemName}|{_itemValue}|{_itemQuantity}|{_itemDescription}|{_itemSubcategory}|{_itemMaterial}|{_isDishwasherSafe}";
     }
 }

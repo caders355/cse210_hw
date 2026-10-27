@@ -1,0 +1,2 @@
+Open-Ended Project -> Inventory System
+All classes have been defined and structured. The parent class, Item, is generally complete, and the main program and InventoryManager are generally complete as well. Portions of the child classes are complete, and the program can run without errors

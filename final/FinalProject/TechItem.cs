@@ -13,24 +13,25 @@ using System.Runtime.CompilerServices;
 public class TechItem : Item
 {
     // Unique attributes for tech items
-    private string _itemType;
+    private string _itemSubcategory;
     private string _itemBrand;
     private string _itemSerialNumber;
 
-    // 
-    public TechItem(string id, string name, double value, int quantity, string description, string itemType, string itemBrand, string itemSerialNumber)
+    // Use base to pass shared attributes to parent constructor
+    public TechItem(string id, string name, double value, int quantity, string description, string itemSubcategory, string itemBrand, string itemSerialNumber)
         : base(id, name, value, quantity, description)
     {
-        _itemType = itemType;
+        _itemSubcategory = itemSubcategory;
         _itemBrand = itemBrand;
         _itemSerialNumber = itemSerialNumber;
     }
 
-    // 
+    // Changes the way the parent method functions
     public override void DisplayItemInfo()
     {
-        Console.WriteLine($"[Tech] {_itemName} ({_itemBrand}) - ${_itemValue}");
-        Console.WriteLine($"    {_itemBrand} {_itemType} - Qty: {_itemQuantity}");
+        Console.WriteLine($"[Tech] {_itemName} - ${_itemValue}");
+        Console.WriteLine($"    {_itemBrand} {_itemSubcategory}");
+        Console.WriteLine($"    Qty: {_itemQuantity}");
         Console.WriteLine($"    SN: {_itemSerialNumber}");
         Console.WriteLine($"    Item Description: {_itemDescription}");
     }
@@ -39,6 +40,6 @@ public class TechItem : Item
     public override string GetStringRepresentation()
     {
         // Use '|' as delimiter
-        return $"TechItem|{_itemId}|{_itemName}|{_itemValue}|{_itemBrand}|{_itemType}|{_itemQuantity}|{_itemSerialNumber}|{_itemDescription}";
+        return $"TechItem|{_itemId}|{_itemName}|{_itemValue}|{_itemQuantity}|{_itemDescription}|{_itemSubcategory}|{_itemBrand}|{_itemSerialNumber}";
     }
 }
