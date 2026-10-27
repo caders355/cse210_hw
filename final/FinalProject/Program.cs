@@ -114,8 +114,9 @@ class Program
                         string itemSubcategory = Console.ReadLine();
                         Console.Write("Material: ");
                         string itemMaterial = Console.ReadLine();
-                        Console.Write("Dishwasher Safe? ");
-                        bool isDiswasherSafe = bool.Parse(Console.ReadLine());
+                        Console.Write("Dishwasher Safe (yes/no)? ");
+                        string safeInput = Console.ReadLine().ToLower().Trim();
+                        bool isDiswasherSafe = (safeInput == "yes" || safeInput == "y" || safeInput == "true");
 
                         newItem = new KitchenItem(itemId, itemName, itemValue, itemQuantity, itemDescription, itemSubcategory, itemMaterial, isDiswasherSafe);
                     }
@@ -142,8 +143,9 @@ class Program
                         string itemPrimaryMaterial = Console.ReadLine();
                         Console.Write("Primary Color: ");
                         string itemPrimaryColor = Console.ReadLine();
-                        Console.Write("Can Disassemble? ");
-                        bool canDisassemble = bool.Parse(Console.ReadLine());
+                        Console.Write("Can Disassemble (yes/no)? ");
+                        string safeInput = Console.ReadLine().ToLower().Trim();
+                        bool canDisassemble = (safeInput == "yes" || safeInput == "y" || safeInput == "true");
 
                         newItem = new FurnitureItem(itemId, itemName, itemValue, itemQuantity, itemDescription, itemDimensions, itemPrimaryMaterial, itemPrimaryColor, canDisassemble);
                     }

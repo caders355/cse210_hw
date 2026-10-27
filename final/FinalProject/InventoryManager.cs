@@ -57,6 +57,7 @@ public class InventoryManager
         foreach (Item item in _inventoryList)
         {
             // Automatically call correct DisplayItemInfo(), based on child type
+            Console.WriteLine(new string('-', 20));
             item.DisplayItemInfo();
             Console.WriteLine(new string('-', 20));
         }
