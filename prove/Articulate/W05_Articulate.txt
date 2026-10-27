@@ -1,0 +1,4 @@
+Polymorphism is the ability for a parent class to pass along a method, and a child class to use it's own unique implementation of if to get a result specific to that child class.
+This is beneficial because it keeps the code very flexible. The parent class can set up methods to be used by several child classes, and even if the child classes need it to work differently, they can still use the same method from the parent.
+An application example might be when you need to iterate through a list, but it contains different objects. If you set it up right, you can call the same parent method it will figure out how to handle each different object.
+In my program, I wrote a method to record an event, and in my GoalManager class, I called that method. Because each class used it's own implementation of that parent method, it knew what to do regardless of what the user chose.

@@ -1,0 +1,68 @@
+Program
+    1. The program will maintain, store, and edit an inventory of items.
+    2. The program takes in user input for the item names and details.
+    3. The program shows the user a menu, a full list of items, and items arranged by category, as well as an item's details.
+    4. The program ends when the user tells it to exit.
+
+Classes, Attributes, and Behaviors
+    1. Program ~~> The Entry Point
+        -> None
+        ==> Main()
+        ==> DisplayMenu()
+    2. InventoryManager ~~> The Controller
+        -> private List<Item> _inventoryList
+        ==> AddItem()
+        ==> RemoveItem()
+        ==> DisplayAllItems()
+        ==> SearchByCategory()
+        ==> CalculateTotalInventoryValue()
+    3. Item [Parent Class]
+        -> _id [int]
+        -> _name [string]
+        -> _value [double]
+        -> _quantity [int]
+        -> _description [string]
+        ^* with getters and setters
+        ==> UpdateQuantity(int amount)
+        ==> virtual void DisplayInfo()
+        ==> abstract string GetDetails()
+    4. TechItem [Child Class]
+        -> _serialNumber [int]
+        -> _warrantyMonths [int]
+        -> _brand [string]
+        ==> override DisplayInfo()
+    5. ClothingItem [Child Class]
+        -> _size [string]
+        -> _material [string]
+        -> _careInstructions [string]
+        ==> override DisplayInfo()
+    6. KitchenItem [Child Class]
+        -> _material
+        -> _isDishwasherSafe
+        ==> override DisplayInfo()
+    7. ToolItem [Child Class]
+        -> _powerType
+        -> _subcategory
+        ==> override DisplayInfo()
+    8. FurnitureItem [Child Class]
+        -> _dimensions
+        -> _canDisassemble
+        -> _primaryMaterial
+        ==> override DisplayInfo()
+
+Program Flow
+    1. Create InventoryManager instance
+    2. InventoryManager reads data from file, populates List<item>
+    3. While loop, menu for user
+    4. AddNewItem()
+        -> Ask user which category
+        -> Creates new item
+        -> Adds item to list
+    5. ViewInventory()
+        -> DisplayAllItems(), iterates through List and displays all items
+        -> for each item, calls item.DisplayInfo()
+    6. Save to or Load from file
+        -> Autosave before breaking loop
+        -> format data, calls item.GetStringRepresentation()
+        -> saves strings to text file
+    7. Exit while loop
