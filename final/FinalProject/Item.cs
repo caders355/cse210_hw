@@ -3,7 +3,7 @@ Inventory Program - Item [Parent of TechItem, ToolItem, KitchenItem, ClothingIte
 
 Author: [Cade P. Woolley]
 Date: [Oct 2026]
-Version: [2.0]
+Version: [1.0]
 */
 
 using System;
@@ -28,7 +28,6 @@ public abstract class Item
         _itemDescription = description;
     }
 
-    // 
     public void UpdateQuantity(int amount)
     {
         _itemQuantity += amount;
